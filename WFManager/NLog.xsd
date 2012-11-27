@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.nlog-project.org/schemas/NLog.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="nlog">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element maxOccurs="unbounded" name="variable">
+                    <xs:complexType>
+                        <xs:attribute name="name" type="xs:string" use="required" />
+                        <xs:attribute name="value" type="xs:string" use="required" />
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="targets">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element maxOccurs="unbounded" name="target">
+                                <xs:complexType>
+                                    <xs:attribute name="name" type="xs:string" use="required" />
+                                    <xs:attribute name="archiveFileName" type="xs:string" use="optional" />
+                                    <xs:attribute name="fileName" type="xs:string" use="optional" />
+                                    <xs:attribute name="archiveAboveSize" type="xs:unsignedInt" use="optional" />
+                                    <xs:attribute name="maxArchiveFiles" type="xs:unsignedByte" use="optional" />
+                                    <xs:attribute name="archiveNumbering" type="xs:string" use="optional" />
+                                    <xs:attribute name="autoFlush" type="xs:boolean" use="optional" />
+                                    <xs:attribute name="layout" type="xs:string" use="required" />
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                        <xs:attribute name="async" type="xs:boolean" use="required" />
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="rules">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element maxOccurs="unbounded" name="logger">
+                                <xs:complexType>
+                                    <xs:attribute name="name" type="xs:string" use="required" />
+                                    <xs:attribute name="maxlevel" type="xs:string" use="required" />
+                                    <xs:attribute name="minlevel" type="xs:string" use="required" />
+                                    <xs:attribute name="writeTo" type="xs:string" use="required" />
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+            <xs:attribute name="autoReload" type="xs:boolean" use="required" />
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

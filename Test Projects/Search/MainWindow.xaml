@@ -1,0 +1,15 @@
+﻿<Window x:Class="Search.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid>
+        <Grid.ColumnDefinitions />
+        <Grid.RowDefinitions>
+            <RowDefinition Height="35" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        
+        <Frame Name="Search" Grid.Column="0" Grid.Row="0" NavigationUIVisibility="Hidden" Background="BlanchedAlmond"/>
+        <Frame Name="Results" Grid.Column="0" Grid.Row="1" NavigationUIVisibility="Hidden" />
+    </Grid>
+</Window>
